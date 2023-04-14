@@ -39,6 +39,12 @@ export const Layout =() => {
         console.log(todoList);
     }
 
+    const Delete = (id:number):void =>{
+        setTodoList(todoList.filter((item)=>{
+            return item.id!==id;
+        }));
+    }
+
     return (
         <>
         <input type="text" value={task} placeholder="Enter your task.." onKeyDown={keyHandler} onChange={handleChange}/>
@@ -49,7 +55,7 @@ export const Layout =() => {
             
             {
                 todoList.map((item,index)=>(
-                    <TaskList Todo={item} key={index}/>
+                    <TaskList Todo={item} key={index} delete={Delete}/>
                 ))
             }
         </div>
