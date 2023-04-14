@@ -48,7 +48,7 @@ const TaskList = (Props:X)=> {
     return (
         <>
         <div className='main'>
-        <h1 style={isChecked?{textDecoration:'line-through',textDecorationColor:'red'}:{}}>{Props.Todo.title}</h1>
+        <h1 className='head' style={isChecked?{textDecoration:'line-through',textDecorationColor:'red'}:{}}>{Props.Todo.title}</h1>
         <h3>{Props.Todo.status}
         <span><input className='chk' type='checkbox' checked={isChecked} onChange={checkHandler}/></span>&nbsp;&nbsp;
         <span> <button className='btn2' type='button' onClick={editHandler}>Edit</button> </span>

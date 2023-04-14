@@ -67,7 +67,7 @@ export const Layout =() => {
     return (
         <>
         <div className="container">
-        <input type="text" className="inpt" value={task} placeholder="Enter your task.." onKeyDown={keyHandler} onChange={handleChange}/>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text"  className="inpt" value={task} placeholder="Enter your task.." onKeyDown={keyHandler} onChange={handleChange}/>&nbsp;&nbsp;&nbsp;&nbsp;
         <button type="button" className="btn" onClick={clickHandler} >Add</button>
         </div>
         <br/><br/>
