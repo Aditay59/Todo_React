@@ -75,7 +75,7 @@ export const Layout =() => {
         <div className="tsklist">
             
             {
-                todoList.map((item,index)=>(
+                todoList.map((item:ITask,index:number)=>(
                     <TaskList  Todo={item} key={index} delete={Delete}/>
                 ))
             }
