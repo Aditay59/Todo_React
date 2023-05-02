@@ -22,6 +22,8 @@ const TaskList = (Props:X)=> {
             setChecked(false);
             setStatus("Pending");
             Props.Todo.status="Pending";
+            //localStorage.seItem('toDoList',JSON.stringify([...Props.Todo[]]));
+            //localStorage.setItem('toDoList',JSON.stringify());
             //Props.Todo.status=stats;
         }
         else {

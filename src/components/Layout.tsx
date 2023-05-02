@@ -14,16 +14,24 @@ export const Layout =() => {
           setTodoList(JSON.parse(storedTodoList));
         }
       },[]);
-    
-      useEffect(() => {
-        localStorage.setItem('todoList', JSON.stringify(todoList));
-      }, [todoList]);
 
     const handleChange = (event:ChangeEvent<HTMLInputElement>):void => {
         const val = event.target.value;
         console.log(val);
         settask(val);
+    }
 
+    const AddTask = ()=>{
+        const newTask = {
+            id:Id,
+            title:task,
+            status:"Pending"
+        }
+        let arr=[...todoList,newTask]
+        setTodoList(arr);
+        setId(Id+1);
+        settask("");
+        //localStorage.setItem('todoList', JSON.stringify(arr));   
     }
 
     const clickHandler = () =>{
@@ -31,40 +39,28 @@ export const Layout =() => {
             alert("Enter Your task in input box");
             return;
         }
-        const newTask = {
-            id:Id,
-            title:task,
-            status:"Pending"
-        }
-        setTodoList([...todoList,newTask]);
-        setId(Id+1);
-        settask("");
-        console.log(todoList);
+        AddTask();
+        //console.log(todoList);
     }
     const keyHandler = (event:KeyboardEvent<HTMLInputElement>):void =>{
         if(!task) {
             return;
         }
         if(event.key==='Enter') {
-            const newTask = {
-                id:Id,
-                title:task,
-                status:"Pending"
-            }
-            setTodoList([...todoList,newTask]);
-            setId(Id+1);
-            settask("");
+            AddTask();
         }
-        console.log(todoList);
+        //console.log(todoList);
     }
 
     const Delete = (id:number):void =>{
         setTodoList(todoList.filter((item)=>{
             return item.id!==id;
         }));
+        //localStorage.setItem('todoList', JSON.stringify(todoList));
     }
 
     return (
+        
         <>
         <div className="container">
         <input type="text"  className="inpt" value={task} placeholder="Enter your task.." onKeyDown={keyHandler} onChange={handleChange}/>&nbsp;&nbsp;&nbsp;&nbsp;
